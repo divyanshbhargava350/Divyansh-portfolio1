@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #f1f5f9;
+    --border-color: rgba(147, 51, 234, 0.2);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-glow: rgba(147, 51, 234, 0.15);
+  }
+
+  .dark {
+    --bg-primary: #07070b;
+    --bg-surface: #0e0e18;
+    --bg-surface-hover: #161527;
+    --border-color: rgba(168, 85, 247, 0.18);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-glow: rgba(168, 85, 247, 0.25);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Futuristic Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07070b;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b21a8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Futuristic Grid Background */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+}
+
+.light .bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(147, 51, 234, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(147, 51, 234, 0.07) 1px, transparent 1px);
+}
+
+/* Subtle Animated Circuit Lines */
+.circuit-pattern {
+  background-image: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(14, 14, 24, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(147, 51, 234, 0.22);
+}
+
+.glass-panel-elevated {
+  background: rgba(21, 21, 36, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.light .glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+}
+
+/* Glowing text and borders */
+.text-glow-purple {
+  text-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 14px rgba(6, 182, 212, 0.6);
+}
+
+/* Pulse animation for IoT packets */
+@keyframes dashTravel {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash {
+  stroke-dasharray: 6 6;
+  animation: dashTravel 1.5s linear infinite;
+}
+
+@keyframes pulseLed {
+  0%, 100% { opacity: 0.3; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 6px #06b6d4); }
+}
+
+.led-indicator {
+  animation: pulseLed 2s ease-in-out infinite;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
